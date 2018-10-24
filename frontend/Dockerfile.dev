@@ -1,0 +1,15 @@
+FROM node:alpine
+WORKDIR '/app'
+COPY ./package.json ./
+RUN npm install
+RUN npm install -g nodemon
+COPY . .
+CMD ["npm", "run", "start"]
+
+
+
+# docker run -p 3000:3000 -v /app/node_modules -v ${pwd}:/app 0cff92fd3b97
+
+#docker build -f Dockerfile.dev .
+
+#docker kill $(docker ps -q)
