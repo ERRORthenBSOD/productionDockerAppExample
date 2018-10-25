@@ -1,0 +1,9 @@
+sudo: required
+service:
+  - docker
+
+before_install:
+  - docker build -t atmosphericb/dockerProduction -f Dockerfile.dev .
+
+script:
+  - docker run -t atmosphericb/dockerProduction npm run test -- --coverage
